@@ -2,9 +2,15 @@ extends layout
 
 block content
   h1= 'Project Euler (unofficial): Check answer'
-  // p Welcome to #{title}
-  form(method='POST', action='/problem')
-    p Problem ID:
-      input(type='number', name='ProblemId')
-    p Answer
-      input(type='text', name='Answer')
+  title= title
+  div(id='container', style='width:400px')
+    form(class='form-line', role='form', action='/problem', method='POST')
+      div(class='form-group')
+        label(class='sr-only', for='ProblemID') Problem ID
+        //- Needed to put 'name' as well as 'id' attribute for express's
+        //- bodyParser to work correctly in returning input
+        input(type='number', class='form-control', name='ProblemId', id='ProblemId', placeholder='Enter Problem #')
+      div(class='form-group')
+        label(class='sr-only', for='Answer') Answer: 
+        input(type='text', class='form-control', name='Answer', id='Answer', placeholder='Answer')
+      button(type='submit' class='btn btn-default') Submit Answer
