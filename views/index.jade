@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1= 'Project Euler (unofficial): Check answer'
+  // p Welcome to #{title}
+  form(method='POST', action='/problem')
+    p Problem ID:
+      input(type='number', name='ProblemId')
+    p Answer
+      input(type='text', name='Answer')
